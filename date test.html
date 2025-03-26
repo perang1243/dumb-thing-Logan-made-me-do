@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+      <p id="output0"></p>
+      <p id="output1"></p>
+      <p id="output2"></p>
+      <p id="output3"></p>
+      <p id="output4"></p>
+      <p id="output5"></p>
+</body>
+</html>
+
+<script>
+      function addZero(i) {
+            if(i < 10) {
+                  var i = "0" + i;
+                  return i;
+            }
+            else {
+                  var i = i
+                  return i;
+            }
+      }
+      
+      function outputRealDate() {
+            function updateDate() {
+                  const currentTime = new Date();
+            
+                  const weekday = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"];
+                  const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            
+                  const realDayOfMonth = addZero(currentTime.getDate());
+                  const realMonth = month[currentTime.getMonth()];
+                  const realYear = addZero(currentTime.getFullYear());
+                  const realHours = addZero(currentTime.getHours());
+                  const realMins = addZero(currentTime.getMinutes());
+                  const realSecs = addZero(currentTime.getSeconds());
+                  const realDay = weekday[currentTime.getDay()];
+            
+                  document.getElementById("output2").innerHTML = `The real date is: ${realDay} ${realMonth} ${realDayOfMonth} ${realYear} ${realHours}:${realMins}:${realSecs}`;
+            }
+            setInterval(updateDate, 100);
+            updateDate();
+      }
+      
+      outputRealDate();
+</script>
